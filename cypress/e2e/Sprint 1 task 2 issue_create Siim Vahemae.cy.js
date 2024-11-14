@@ -13,7 +13,7 @@ describe('Issue create', () => {
       });
   });
 
-  it.skip('Should create an issue and validate it successfully', () => {
+  it.only('Should create an issue and validate it successfully', () => {
     // System finds modal for creating issue and does next steps inside of it
     cy.get('[data-testid="modal:issue-create"]').within(() => {
       // Type value to description input field
@@ -160,8 +160,8 @@ describe('Issue create', () => {
    it('Assignment 2 TC 2. Should create task issue using Random Data Plugin (faker) and validate it successfully', () => {
     
     // Faker input
-    const randomWord = faker.string.alpha({ length: { min: 5, max: 10 } });
-    const randomSentence = faker.lorem.lines(1);
+    const randomWord = faker.string.alpha({ length: { min: 5, max: 10 } });  // Näidises oli let
+    const randomSentence = faker.lorem.lines(1);  // Näidises oli let
 
     // System finds modal for creating issue and does next steps inside of it
     cy.get('[data-testid="modal:issue-create"]').within(() => {

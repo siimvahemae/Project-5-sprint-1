@@ -1,3 +1,4 @@
+import { faker } from '@faker-js/faker';
 describe('Issue comments creating, editing and deleting', () => {
     beforeEach(() => {
         cy.visit('/');
@@ -10,7 +11,7 @@ describe('Issue comments creating, editing and deleting', () => {
     const getIssueDetailsModal = () => cy.get('[data-testid="modal:issue-details"]');
 
     it('Should create a comment successfully', () => {
-        const comment = 'TEST_COMMENT';
+        const comment = faker.lorem.text();
 
         getIssueDetailsModal().within(() => {
             cy.contains('Add a comment...')
@@ -29,11 +30,11 @@ describe('Issue comments creating, editing and deleting', () => {
 
     it('Should edit a comment successfully', () => {
         const previousComment = 'An old silent pond...';
-        const comment = 'TEST_COMMENT_EDITED';
+        const comment = faker.lorem.lines(3);
 
         getIssueDetailsModal().within(() => {
             cy.get('[data-testid="issue-comment"]')
-                .first()
+                //.first()
                 .contains('Edit')
                 .click()
                 .should('not.exist');
@@ -53,8 +54,9 @@ describe('Issue comments creating, editing and deleting', () => {
         });
     });
 
-    it('Should delete a comment successfully', () => {
-        getIssueDetailsModal()
+    it.only('Should delete a comment successfully', () => {
+        
+        getIssueDetailsModal
             .find('[data-testid="issue-comment"]')
             .contains('Delete')
             .click();
