@@ -1,7 +1,7 @@
 
 import { faker } from '@faker-js/faker';
 
-describe('Issue comments creating, editing and deleting', () => {
+describe('Time estimation and logging functionality tests', () => {
     beforeEach(() => {
         cy.visit('/');
         cy.url().should('eq', `${Cypress.env('baseUrl')}project/board`).then((url) => {

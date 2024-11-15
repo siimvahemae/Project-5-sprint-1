@@ -27,6 +27,7 @@ describe('Issue comments creating, editing and deleting', () => {
         // Should create, fresh, comment nr 2, before 'An old silent pond...'
 
         getIssueDetailsModal().within(() => {
+            getIssueComment().should('contain', commentPrevious)
             cy.contains('Add a comment...')
                 .click()
 
